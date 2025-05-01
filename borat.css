@@ -1,0 +1,293 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f9e8e8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.book-container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    perspective: 1500px;
+}
+
+.book-cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    border-radius: 10px 20px 20px 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 10;
+    transition: transform 1s ease;
+    transform-origin: left;
+    cursor: pointer;
+}
+
+.book-cover h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.open-btn {
+    padding: 12px 30px;
+    background-color: white;
+    color: #ff9a9e;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.open-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.book {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    display: none;
+}
+
+.page {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.left-page {
+    left: 0;
+    border-radius: 10px 0 0 10px;
+}
+
+.right-page {
+    right: 0;
+    border-radius: 0 10px 10px 0;
+}
+
+.page-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-family: 'Dancing Script', cursive;
+    color: #ff6b88;
+    font-size: 2.2rem;
+    margin-top: 0;
+}
+
+p {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.heart {
+    width: 60px;
+    height: 60px;
+    background-color: #ff6b88;
+    position: relative;
+    transform: rotate(45deg);
+    margin: 40px auto;
+    animation: heartbeat 1.5s infinite;
+}
+
+.heart:before, .heart:after {
+    content: "";
+    width: 60px;
+    height: 60px;
+    background-color: #ff6b88;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart:before {
+    top: -30px;
+    left: 0;
+}
+
+.heart:after {
+    top: 0;
+    left: -30px;
+}
+
+.polaroid {
+    background: white;
+    padding: 15px 15px 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: rotate(2deg);
+    margin: 20px auto;
+    max-width: 250px;
+}
+
+.photo-placeholder {
+    height: 200px;
+    background-image: url("baby.jpeg");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    margin-bottom: 10px;
+}
+
+.caption {
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    color: #666;
+}
+
+.love-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.love-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #ffb6c1;
+    font-size: 1.1rem;
+}
+
+.memory, .promise {
+    background-color: #fff9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid #ff6b88;
+}
+
+.final-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.signature {
+    margin-top: 40px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: #ff6b88;
+}
+
+.signature .name {
+    font-size: 2rem;
+    margin-top: 10px;
+}
+
+.page-controls {
+    position: absolute;
+    bottom: -50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.page-controls button {
+    padding: 10px 20px;
+    background-color: #ff6b88;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.page-controls button:hover {
+    background-color: #ff4757;
+}
+
+.page-controls button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.floating-hearts {
+    position: relative;
+    height: 100px;
+    margin-top: 30px;
+}
+
+.floating-hearts:before, .floating-hearts:after {
+    content: "❤";
+    position: absolute;
+    font-size: 20px;
+    color: #ff6b88;
+    animation: float 4s infinite ease-in-out;
+}
+
+.floating-hearts:before {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.floating-hearts:after {
+    left: 70%;
+    animation-delay: 2s;
+}
+
+@keyframes heartbeat {
+    0% { transform: rotate(45deg) scale(1); }
+    25% { transform: rotate(45deg) scale(1.1); }
+    50% { transform: rotate(45deg) scale(1); }
+    75% { transform: rotate(45deg) scale(1.1); }
+    100% { transform: rotate(45deg) scale(1); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+/* Responsive design */
+@media (max-width: 850px) {
+    .book-container {
+        width: 100%;
+        height: auto;
+        min-height: 500px;
+    }
+    
+    .book-cover h1 {
+        font-size: 2.5rem;
+    }
+    
+    .page {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: 400px;
+        margin-bottom: 20px;
+        border-radius: 10px !important;
+    }
+    
+    .page-controls {
+        position: relative;
+        bottom: auto;
+        margin-top: 20px;
+    }
+}
